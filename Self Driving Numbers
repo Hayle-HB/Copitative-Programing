@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+#include <vector>
+
+
+class Solution {
+public:
+    vector<int> selfDividingNumbers(int left, int right) {
+        vector<int> answer;
+        for(int i = left; i <= right; i++){
+          if(isSelfDrivingNum(i)){
+            answer.push_back(i);
+          }
+        }
+        return answer;
+    }
+  bool isSelfDrivingNum(int num){
+   int temp = num;
+    int temp2 = num;
+  int exp = 1;
+   while(temp > 9){
+     exp*=10;
+     temp /=10;
+   }
+
+   int digit;
+   while(exp > 0){
+    digit = temp2/exp;
+
+    if(digit == 0){
+      return false;
+    }
+    else if(num%digit != 0){
+      return false;
+    }
+
+    temp2 %=exp;
+    exp /=10;
+   }
+
+  return true;
+
+}
+};
+
+ 
+
+
+int main(){
+vector<int> answer;
+Solution sol;
+
+answer = sol.selfDividingNumbers(1, 22);
+cout << "[ ";
+for(int i: answer){
+  cout << i << " ";
+}
+cout << " ]";
+  return 0;
+}
