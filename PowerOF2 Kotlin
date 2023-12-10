@@ -1,0 +1,63 @@
+import java.util.*
+
+fun findBinary(number: Int): List<Int> {
+    val binaryRepresentation = mutableListOf<Int>()
+    var base = 1
+
+    var num = number
+    while (num > 0) {
+        if (num % 2 == 1) {
+            binaryRepresentation.add(base)
+        }
+        base = base shl 1 // Equivalent to multiplying by 2
+        num = num shr 1 // Equivalent to dividing by 2
+    }
+
+    return binaryRepresentation
+}
+
+fun number(num: MutableList<Int>, k: Int, value: Int): List<Int> {
+    var minSize = num.size
+    var maxSize = value
+    if (k < minSize || k > maxSize) {
+        num.clear()
+        num.add(-1)
+        return num
+    }
+
+    var size = num.size
+
+    while (size < k) {
+        for (i in 0 until size) {
+            if (num[i] > 1) {
+                num.add(num[i] / 2)
+                num[i] /= 2
+                size++
+            }
+            if (size >= k) break
+        }
+    }
+
+    return num
+}
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+    val binary = mutableListOf<Int>()
+    val finalAnswer = mutableListOf<Int>()
+
+    val number = scanner.nextInt()
+    val k = scanner.nextInt()
+
+    binary.addAll(findBinary(number))
+    finalAnswer.addAll(number(binary, k, number))
+
+    if (finalAnswer[0] == -1) {
+        println("NO")
+    } else {
+        println("YES")
+        for (i in finalAnswer) {
+            print("$i ")
+        }
+    }
+}
