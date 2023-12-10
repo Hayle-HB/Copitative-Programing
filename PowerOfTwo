@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+  vector<int> findBinary(int number) {
+     vector<int> binaryRepresentation;
+    int base = 1;
+
+    while (number > 0) {
+        if (number % 2 == 1) {
+            binaryRepresentation.push_back(base);
+        }
+        base <<= 1;  // Equivalent to multiplying by 2
+        number >>= 1; // Equivalent to dividing by 2
+    }
+
+    return binaryRepresentation;
+}
+
+  vector<int> Number( vector<int>& num, int k, int value) {
+    int minSize = num.size();
+    int maxSize = value;
+    if (k < minSize || k > maxSize) {
+        num = {-1};
+        return num;
+    }
+
+    int size = num.size();
+
+    while (size < k) {
+        for (int i = 0; i < size && size < k; ++i) {
+            if (num[i] > 1) {
+                num.push_back(num[i] / 2);
+                num[i] /= 2;
+                size++;
+            }
+        }
+    }
+
+    return num;
+}
+
+int main() {
+      vector<int> Binary;
+      vector<int>FinalAnswer;
+    int number, k;
+      cin >> number >> k;
+
+    Binary = findBinary(number);
+    FinalAnswer = Number(Binary, k, number);
+
+    if (FinalAnswer[0] == -1) {
+          cout << "NO";
+    } else {
+          cout << "YES" <<  endl;
+        for (int i : FinalAnswer) {
+              cout << i << " ";
+        }
+    }
+
+    return 0;
+}
