@@ -1,0 +1,64 @@
+Accountand_Information = []
+
+def create_account():
+    Name = input("Enter your Name: ")
+    account = input("Enter account Number: ")
+    if check_account(account):
+        print("Account Already Exists")
+    else:
+        Balance = float(input("Enter the Amount to be deposited: "))
+        if Balance <= 0:
+            print("Invalid input. Try again.")
+        else:
+            New_account = {"Name": Name, "AccountNumber": account, "Balance": Balance}
+            Accountand_Information.append(New_account)
+            print("Account Created Successfully")
+            print(New_account)
+
+def deposit():
+    account = input("Enter account Number: ")
+    if check_account(account):
+        amount = float(input("Enter the amount to deposit: "))
+        for acc in Accountand_Information:
+            if acc["AccountNumber"] == account:
+                acc["Balance"] += amount
+                print(f"Deposit successful. New Balance: ${acc['Balance']}")
+                break
+    else:
+        print("Account not found. Please create an account.")
+
+# The withdraw and check_balance functions are similar to deposit. I'll provide them below:
+
+def withdraw():
+    account = input("Enter account Number: ")
+    if check_account(account):
+        amount = float(input("Enter the amount to withdraw: "))
+        for acc in Accountand_Information:
+            if acc["AccountNumber"] == account:
+                if amount <= acc["Balance"]:
+                    acc["Balance"] -= amount
+                    print(f"Withdrawal successful. New Balance: ${acc['Balance']}")
+                else:
+                    print("Insufficient funds.")
+                break
+    else:
+        print("Account not found. Please create an account.")
+
+def check_balance():
+    account = input("Enter account Number: ")
+    if check_account(account):
+        for acc in Accountand_Information:
+            if acc["AccountNumber"] == account:
+                print(f"Current Balance: ${acc['Balance']}")
+                break
+    else:
+        print("Account not found. Please create an account.")
+
+def check_account(account):
+    return any("AccountNumber" in existing_account and existing_account["AccountNumber"] == account for existing_account in Accountand_Information)
+
+# Example usage:
+create_account()
+deposit()
+withdraw()
+check_balance()
