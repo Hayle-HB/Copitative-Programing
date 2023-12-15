@@ -1,0 +1,15 @@
+def find_duplicate(my_list):
+    seen = set()
+    duplicates = set()
+
+    for num in my_list:
+        if num in seen:
+            duplicates.add(num)
+        else:
+            seen.add(num)
+
+    return list(duplicates)
+
+number = [1, 2, 3, 3, 4, 4, 5, 6]
+result = find_duplicate(number)
+print(result)
