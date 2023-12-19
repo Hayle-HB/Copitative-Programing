@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int testCases = scanner.nextInt();
+        int totalSuccessfulCases = 0;
+
+        while (testCases-- > 0) {
+            int successCount = 0;
+
+            for (int i = 0; i < 3; i++) {
+                int operation = scanner.nextInt();
+                if (operation == 1) {
+                    successCount++;
+                }
+            }
+
+            if (successCount >= 2) {
+                totalSuccessfulCases++;
+            }
+        }
+
+        scanner.close();
+        System.out.println(totalSuccessfulCases);
+    }
+}
