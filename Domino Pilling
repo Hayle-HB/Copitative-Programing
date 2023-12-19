@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int M = sc.nextInt();
+        int N = sc.nextInt();
+        int size;
+
+        if (M % 2 == 0) {
+            size = M / 2 * N;
+        } else if (N % 2 == 0) {
+            size = N / 2 * M;
+        } else {
+            size = ((M - 1) / 2) * N + (N - 1) / 2;
+        }
+
+        System.out.println(size);
+        sc.close();
+    }
+}
