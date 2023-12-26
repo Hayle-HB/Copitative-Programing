@@ -1,0 +1,166 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+struct Employee {
+    int id;
+    string name;
+    double salary;
+    string startDate;
+};
+
+void displayRecords() {
+    ifstream inFile("emp.txt", ios::in);  
+    string line;
+
+    cout << "Employee Records:" << endl;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+
+    inFile.close();
+}
+
+bool deleteRecord(int id) {
+    ifstream inFile("emp.txt", ios::in);  
+    ofstream outFile("temp.txt", ios::out); 
+    string line;
+    bool found = false;
+
+    while (getline(inFile, line)) {
+        int recordId;
+        istringstream iss(line);
+
+        if (iss >> recordId) {
+            if (recordId == id) {
+                found = true;
+                continue; 
+            }
+        }
+
+        outFile << line << endl;
+    }
+
+    inFile.close();
+    outFile.close();
+
+    // Replace the original file with the temporary file
+    remove("emp.txt");
+    rename("temp.txt", "emp.txt");
+
+    return found;
+}
+
+  
+int factorial (int number){
+    if( number ==0){
+    return 1;
+    }
+    else if(number == 1){
+        return 1;
+    }
+    else {
+        return number*factorial(number-1);
+    }
+}
+
+
+int main() {
+    int first_choice;
+
+while(true){
+    cout << "\nchoose Your program : \n";
+    cout <<"1. I want to calculate factorial : \n"
+         << "2. I want to manage employees data :\n"
+         << "3. To exist the whole program : \n ~: ";
+         cin >> first_choice;
+    if(first_choice == 1){
+    int number;
+    while(true){
+    cout << "Enter a posetive number : ";
+    cin >> number;
+    if(number >=0){
+        break;
+    }
+    else {
+        cout << "Invalid input, enter again : ";
+    }
+    }
+
+
+int fact = factorial(number);
+
+cout << "The factorial fo the numebr " << number << " is : " << fact;
+    }
+    
+  else if(first_choice == 2) {  
+    int choice;
+   
+    int idToDelete;
+
+    while (true) {
+        cout << "Menu:" << endl;
+        cout << "1. Add Employee Record" << endl;
+        cout << "2. Display All Records" << endl;
+        cout << "3. Delete Employee Record" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                Employee emp;
+                for(int i =0; i < 5; i++){
+                cout << "Enter Employee ID of employee " << i+1 << " : ";
+                cin >> emp.id;
+                cout << "Enter Name of employee " << i+1 << " : ";
+                cin.ignore();
+                getline(cin, emp.name);
+                cout << "Enter Salary of employee " << i+1 << " : ";
+                cin >> emp.salary;
+                cout << "Enter Start Date (MM/DD/YYYY) of employee " << i+1 << " : ";
+                cin >> emp.startDate;
+
+                ofstream outFile("emp.txt", ios::app | ios::out); 
+                outFile << emp.id << " " << emp.name << " " << emp.salary << " " << emp.startDate << endl;
+                outFile.close();
+                }
+                break;
+            }
+
+            case 2:
+                displayRecords();
+                break;
+            case 3:
+                cout << "Enter the ID of the employee record to delete: ";
+                cin >> idToDelete;
+                if (deleteRecord(idToDelete)) {
+                    cout << "Employee record with ID " << idToDelete << " has been deleted." << endl;
+                } else {
+                    cout << "Employee record with ID " << idToDelete << " not found." << endl;
+                }
+                break;
+            case 4:
+                cout << "Exiting the employee program." << endl;
+                return 0;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+                break;
+        }
+    }
+    }
+
+    else if(first_choice == 3){
+        break;
+    }
+    else {
+        cout << "Invalid Input\n";
+    }
+    }
+    
+
+    return 0;
+}
