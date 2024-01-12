@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+  int n;
+  cin >> n;
+
+   int result = n/5;
+  if( n%5 == 0){
+    cout << result;
+  }
+  else {
+    cout<< result + 1;
+  }
+
+  return 0;
+}
