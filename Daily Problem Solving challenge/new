@@ -1,0 +1,9 @@
+#inlude <iostream>
+using namesapce std;
+
+int main(){
+
+  cout << "Lets beggin the challenge " << endl;
+
+return 0;
+}
