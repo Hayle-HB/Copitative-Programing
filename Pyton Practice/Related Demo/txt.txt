@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+| Property                    |Optimal Range      | Tolerance        | Critical Levels            |
+|-----------------------------|------------------ |------------------|----------------------------|
+| PH                          | 6.0-7.5           | 5.5-8.0          | <5.5 or >8.0               |
+| Temperature                 | 70-80°F           | 60-90°F          | <50°F or >95°F             |
+| NPK                         | Balanced          | Balanced         | Imbalanced                 |
+| Soil Type                   | Well-Drained Loam | Varied           | Compacted, Poor Drainage   |
+| Organic Matter Content      | Moderate to High  | Moderate to High | Low                        |
+| CEC Cation Exchange capacity| Moderate          | Moderate         | Low                        |
+| Soil Moisture               | Moist             | Varied           | Dry                        |
+| Soil Temperature            | 60-70°F           | Varied           | <50°F or >95°F             |
+| Rainfall/Irrigation         | Adequate          | Adequate         | Insufficient               |
+|-----------------------------|-------------------|------------------|----------------------------|
+
+
+
+| Property                   | Optimal Range    | Tolerance        | Critical Levels              |
+|----------------------------|-----------------|----------------=--|------------------------------|
+| PH                         | 6.0-7.5         | 5.5-8.0           | <5.5 or >8.0                 |
+| Temperature                | 60-75°F         | 45-85°F           | <40°F or >90°F               |
+| NPK                        | Balanced        | Balanced          | Imbalanced                   |
+| Soil Type                  | Loamy           | Sandy, Clayey     | Compacted, Poor Drainage     |
+| Organic Matter Content     | 2-4%            | 1-5%              | <1% or >5%                   |
+| CEC (Cation Exchange       | 15-25 cmol/kg   | 10-30 cmol/kg     | <10 cmol/kg or >30 cmol/kg   |
+| Capacity)                  |                 |                   |                              |                              |
+| Soil Moisture              | Moist           | Well-Drained      | Dry                          |
+| Soil Temperature           | 50-75°F         | 40-80°F           | <40°F or >80°F               |
+| Rainfall/Irrigation        | 20-30 inches/yr | 15-35 inches/yr   | <15 inches/yr or >35 inches/yr|
+
+
+
+| Property                   | Optimal Range    | Tolerance        | Critical Levels              |
+|----------------------------|------------------|------------------|------------------------------|
+| PH                         | 6.0-7.5          | 5.5-8.0          | <5.5 or >8.0                 |
+| Temperature                | 60-75°F          | 45-85°F          | <40°F or >90°F               |
+| NPK                        | Balanced         | Balanced         | Imbalanced                   |
+| Soil Type                  | Loamy            | Sandy, Clayey    | Compacted, Poor Drainage     |
+| Organic Matter Content     | 2-4%             | 1-5%             | <1% or >5%                   |
+| CEC (Cation Exchange       | 15-25 cmol/kg    | 10-30 cmol/kg    | <10 cmol/kg or >30 cmol/kg   |
+| Capacity)                  |                  |                  |                              |
+| Soil Moisture              | Moist            | Well-Drained     | Dry                          |
+| Soil Temperature           | 50-75°F          | 40-80°F          | <40°F or >80°F               |
+| Rainfall/Irrigation        | 20-30 inches/yr  | 15-35 inches/yr  | <15 inches/yr or >35 inches/yr|
+
+
